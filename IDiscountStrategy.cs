@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace exampleStrategy
 {
-    public interface IDescontoStrategy
+    public interface IDiscountStrategy
     {
-        decimal AplicarDesconto(decimal precoOriginal);
+        decimal ApplyDiscount(decimal originalPrice);
     }
 }

@@ -4,14 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        decimal precoOriginal = 100.0m;
+        decimal originalPrice = 100.0m;
 
-        IDescontoStrategy descontoPadrao = new DescontoPadraoBusiness();
-        Pedido pedidoComDescontoPadrao = new Pedido(descontoPadrao);
-        Console.WriteLine($"Preço com desconto padrão: {pedidoComDescontoPadrao.CalcularPrecoComDesconto(precoOriginal)}");
+        IDiscountStrategy defaultDiscount = new DefaultDiscountBusiness();
+        Order orderWithDefaultDiscount = new Order(defaultDiscount);
+        Console.WriteLine($"Price with default discount: {orderWithDefaultDiscount.CalculatePriceWithDiscount(originalPrice)}");
 
-        IDescontoStrategy descontoVIP = new DescontoVIPBusiness();
-        Pedido pedidoComDescontoVIP = new Pedido(descontoVIP);
-        Console.WriteLine($"Preço com desconto VIP: {pedidoComDescontoVIP.CalcularPrecoComDesconto(precoOriginal)}");
+        IDiscountStrategy vipDiscount = new VIPDiscountBusiness();
+        Order orderWithVIPDiscount = new Order(vipDiscount);
+        Console.WriteLine($"Price with VIP discount: {orderWithVIPDiscount.CalculatePriceWithDiscount(originalPrice)}");
+
     }
 }
